@@ -17,21 +17,22 @@ int main()
 
 	for (int j = 1, i = 1; i <= 12; i++)
 	{
-		int cube = rand() % 6 + 1;
+		unsigned char cube = rand() % 7;
+		int divisionRemainder = i % 4;
 
-		if (i % 4 == 1)
+		if (divisionRemainder == 1)
 		{
 			hero = 0;
 			cout << "раунд № " << j << "\n игрок : " "\n";
 			cin.get();
 			j++;
 		}
-		else if (i % 4 == 3)
+		else if (divisionRemainder == 3)
 		{
 			computer = 0;
 			cout << "компьютер : ""\n";
 		}
-		if (i % 4 == 1 || i % 4 == 2)
+		if (divisionRemainder == 1 || divisionRemainder == 2)
 		{
 			hero += cube;
 			statisticsHero += cube;
@@ -91,17 +92,18 @@ int main()
 
 	if (statisticsHero > statisticsComputer)
 	{
-		cout << "в игре " " выиграл игрок\n счёт:\n игрок " << statisticsHero << " : компютер " << statisticsComputer;
+		cout << "в игре " " выиграл игрок";
 	}
 	else if (statisticsHero == statisticsComputer)
 	{
-		cout << "в игре " " ничья\n счёт:\n игрок " << statisticsHero << " : компютер " << statisticsComputer;
+		cout << "в игре " " ничья";
 	}
 	else
 	{
-		cout << "в игре " " выиграл компютер\n счёт:\n игрок " << statisticsHero << " : компютер " << statisticsComputer;
+		cout << "в игре " " выиграл компютер";
 	}
+	
+	cout << ""\n счёт:\n игрок " << statisticsHero << " : компютер " << statisticsComputer << endl;
 
-	cout << endl;
 	return 0;
 }
